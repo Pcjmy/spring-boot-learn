@@ -13,8 +13,20 @@ public class PropertiesController {
     @Value("${school.classnum}")
     Integer classnum;
 
+    static Integer age;
+
     @GetMapping("/gradeclass")
     public String gradeClass() {
         return "grade: " + grade + " class: " + classnum;
+    }
+
+    @GetMapping("/static")
+    public String staticPara() {
+        return "static: " + age;
+    }
+
+    @Value("${school.age}")
+    public void setAge(Integer age) {
+        PropertiesController.age = age;
     }
 }
